@@ -1,2 +1,4 @@
-wtfcoin
+WorldTradeFunds Coin
+
+POD CryptoAsian
 =======
