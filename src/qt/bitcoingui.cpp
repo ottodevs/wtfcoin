@@ -81,7 +81,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     rpcConsole(0)
 {
     setFixedSize(1024, 600);
-    setWindowTitle(tr("Wtfcoin"));
+    setWindowTitle(tr("XWTcoin"));
     qApp->setStyleSheet("QMainWindow { background:rgb(255,255,255);font-family:'Open Sans,sans-serif'; } #frame { } QToolBar QLabel { padding-top:15px;padding-bottom:10px;margin:0px; } #spacer { background:rgb(56,56,56);border:none; } #toolbar2 { border:none;width:10px; background-color:qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5,stop: 0 rgb(56,56,56), stop: 1 rgb(56,56,56)); } #toolbar { border:none;height:100%;padding-top:20px; background: rgb(56,56,56); text-align: left; color: white;min-width:200px;max-width:200px;} QToolBar QToolButton:hover {background-color:qlineargradient(x1: 0, y1: 0, x2: 2, y2: 2,stop: 0 rgb(56,56,56), stop: 1 rgb(56,56,56),stop: 2 rgb(56,56,56));} QToolBar QToolButton { font-family:Century Gothic;padding-left:20px;padding-right:200px;padding-top:10px;padding-bottom:10px; width:100%; color: white; text-align: left; background-color: rgb(56,56,56) } #labelMiningIcon { padding-left:5px;font-family:Century Gothic;width:100%;font-size:10px;text-align:center;color:white; } QMenu { background: rgb(56,56,56); color:white; padding-bottom:10px; } QMenu::item { color:white; background-color: transparent; } QMenu::item:selected { background-color:qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5,stop: 0 rgb(56,56,56), stop: 1 rgb(56,56,56)); } QMenuBar { background: rgb(56,56,56); color:white; } QMenuBar::item { font-size:12px;padding-bottom:12px;padding-top:12px;padding-left:15px;padding-right:15px;color:white; background-color: transparent; } QMenuBar::item:selected { background-color:qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5,stop: 0 rgb(56,56,56), stop: 1 rgb(56,56,56)); }");
 #ifndef Q_OS_MAC
     qApp->setWindowIcon(QIcon(":icons/bitcoin"));
@@ -244,7 +244,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(chatAction); */	
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send coins"), this);
-    sendCoinsAction->setToolTip(tr("Send coins to a wtfcoin address"));
+    sendCoinsAction->setToolTip(tr("Send coins to a XWTcoin address"));
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(sendCoinsAction);
@@ -300,29 +300,29 @@ void BitcoinGUI::createActions()
     quitAction->setToolTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutCardAction = new QAction(tr("Wtfcoin Website"), this);
-    aboutCardAction->setToolTip(tr("Go to Wtfcoin website"));
-    aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About Wtfcoin"), this);
-    aboutAction->setToolTip(tr("Show information about wtfcoin"));
+    aboutCardAction = new QAction(tr("XWTcoin Website"), this);
+    aboutCardAction->setToolTip(tr("Go to XWTcoin website"));
+    aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About XWTcoin"), this);
+    aboutAction->setToolTip(tr("Show information about XWTcoin"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
     aboutQtAction->setToolTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
-    optionsAction->setToolTip(tr("Modify configuration options for wtfcoin"));
+    optionsAction->setToolTip(tr("Modify configuration options for XWTcoin"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
     toggleHideAction = new QAction(QIcon(":/icons/bitcoin"), tr("&Show / Hide"), this);
-    encryptWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Encrypt Wtfcoin..."), this);
+    encryptWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Encrypt XWTcoin..."), this);
     encryptWalletAction->setToolTip(tr("Encrypt or decrypt wallet"));
     encryptWalletAction->setCheckable(true);
-    backupWalletAction = new QAction(QIcon(":/icons/filesave"), tr("&Backup Wtfcoin..."), this);
-    backupWalletAction->setToolTip(tr("Backup Wtfcoin to another location"));
+    backupWalletAction = new QAction(QIcon(":/icons/filesave"), tr("&Backup XWTcoin..."), this);
+    backupWalletAction->setToolTip(tr("Backup XWTcoin to another location"));
     changePassphraseAction = new QAction(QIcon(":/icons/key"), tr("&Change Passphrase..."), this);
     changePassphraseAction->setToolTip(tr("Change the passphrase used for wallet encryption"));
-    unlockWalletAction = new QAction(QIcon(":/icons/lock_open"), tr("&Unlock Wtfcoin..."), this);
-    unlockWalletAction->setToolTip(tr("Unlock Wtfcoin"));
-    lockWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Lock Wtfcoin"), this);
-    lockWalletAction->setToolTip(tr("Lock Wtfcoin"));
+    unlockWalletAction = new QAction(QIcon(":/icons/lock_open"), tr("&Unlock XWTcoin..."), this);
+    unlockWalletAction->setToolTip(tr("Unlock XWTcoin"));
+    lockWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Lock XWTcoin"), this);
+    lockWalletAction->setToolTip(tr("Lock XWTcoin"));
     signMessageAction = new QAction(QIcon(":/icons/edit"), tr("Sign &message..."), this);
     verifyMessageAction = new QAction(QIcon(":/icons/transaction_0"), tr("&Verify message..."), this);
 
@@ -426,7 +426,7 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
 #endif
             if(trayIcon)
             {
-                trayIcon->setToolTip(tr("wtfcoin client") + QString(" ") + tr("[testnet]"));
+                trayIcon->setToolTip(tr("XWTcoin client") + QString(" ") + tr("[testnet]"));
                 trayIcon->setIcon(QIcon(":/icons/toolbar_testnet"));
                 toggleHideAction->setIcon(QIcon(":/icons/toolbar_testnet"));
             }
@@ -489,7 +489,7 @@ void BitcoinGUI::createTrayIcon()
     trayIcon = new QSystemTrayIcon(this);
     trayIconMenu = new QMenu(this);
     trayIcon->setContextMenu(trayIconMenu);
-    trayIcon->setToolTip(tr("wtfcoin client"));
+    trayIcon->setToolTip(tr("XWTcoin client"));
     trayIcon->setIcon(QIcon(":/icons/toolbar"));
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
@@ -542,7 +542,7 @@ void BitcoinGUI::optionsClicked()
 
 void BitcoinGUI::aboutCardClicked()
 {
-    QDesktopServices::openUrl(QUrl("http://www.thewtfcoin.in/"));
+    QDesktopServices::openUrl(QUrl("http://www.google.com"));
 }
 
 void BitcoinGUI::aboutClicked()
@@ -564,7 +564,7 @@ void BitcoinGUI::setNumConnections(int count)
     default: icon = ":/icons/connect_4"; break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to wtfcoin network", "", count));
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to XWTcoin network", "", count));
 }
 
 void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
@@ -884,7 +884,7 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
         if (nValidUrisFound)
             gotoSendCoinsPage();
         else
-            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid wtfcoin address or malformed URI parameters."));
+            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid XWTcoin address or malformed URI parameters."));
     }
 
     event->acceptProposedAction();
@@ -899,7 +899,7 @@ void BitcoinGUI::handleURI(QString strURI)
         gotoSendCoinsPage();
     }
     else
-        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid wtfcoin address or malformed URI parameters."));
+        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid XWTcoin address or malformed URI parameters."));
 }
 
 void BitcoinGUI::setEncryptionStatus(int status)
@@ -917,7 +917,7 @@ void BitcoinGUI::setEncryptionStatus(int status)
     case WalletModel::Unlocked:
         labelEncryptionIcon->show();
         labelEncryptionIcon->setPixmap(QIcon(":/icons/lock_open").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-        labelEncryptionIcon->setToolTip(tr("Wtfcoin is <b>encrypted</b> and currently <b>unlocked</b>"));
+        labelEncryptionIcon->setToolTip(tr("XWTcoin is <b>encrypted</b> and currently <b>unlocked</b>"));
         encryptWalletAction->setChecked(true);
         changePassphraseAction->setEnabled(true);
         unlockWalletAction->setVisible(false);
@@ -927,7 +927,7 @@ void BitcoinGUI::setEncryptionStatus(int status)
     case WalletModel::Locked:
         labelEncryptionIcon->show();
         labelEncryptionIcon->setPixmap(QIcon(":/icons/lock_closed").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-        labelEncryptionIcon->setToolTip(tr("Wtfcoin is <b>encrypted</b> and currently <b>locked</b>"));
+        labelEncryptionIcon->setToolTip(tr("XWTcoin is <b>encrypted</b> and currently <b>locked</b>"));
         encryptWalletAction->setChecked(true);
         changePassphraseAction->setEnabled(true);
         unlockWalletAction->setVisible(true);
@@ -952,10 +952,10 @@ void BitcoinGUI::encryptWallet(bool status)
 void BitcoinGUI::backupWallet()
 {
     QString saveDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
-    QString filename = QFileDialog::getSaveFileName(this, tr("Backup Wtfcoin"), saveDir, tr("Wtfcoin Data (*.dat)"));
+    QString filename = QFileDialog::getSaveFileName(this, tr("Backup XWTcoin"), saveDir, tr("XWTcoin Data (*.dat)"));
     if(!filename.isEmpty()) {
         if(!walletModel->backupWallet(filename)) {
-            QMessageBox::warning(this, tr("Backup Failed"), tr("There was an error trying to save the Wtfcoin data to the new location."));
+            QMessageBox::warning(this, tr("Backup Failed"), tr("There was an error trying to save the XWTcoin data to the new location."));
         }
     }
 }
@@ -1053,11 +1053,11 @@ void BitcoinGUI::updateStakingIcon()
     {
         labelStakingIcon->setPixmap(QIcon(":/icons/staking_off").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
         if (pwalletMain && pwalletMain->IsLocked())
-            labelStakingIcon->setToolTip(tr("Not staking because Wtfcoin is locked"));
+            labelStakingIcon->setToolTip(tr("Not staking because XWTcoin is locked"));
         else if (vNodes.empty())
-            labelStakingIcon->setToolTip(tr("Not staking because Wtfcoin is offline"));
+            labelStakingIcon->setToolTip(tr("Not staking because XWTcoin is offline"));
         else if (IsInitialBlockDownload())
-            labelStakingIcon->setToolTip(tr("Not staking because Wtfcoin is syncing"));
+            labelStakingIcon->setToolTip(tr("Not staking because XWTcoin is syncing"));
         else if (!nWeight)
             labelStakingIcon->setToolTip(tr("Not staking because you don't have mature coins"));
         else
