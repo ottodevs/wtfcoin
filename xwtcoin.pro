@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = wtfcoin
+TARGET = xwtcoin
 VERSION = 1.1.2
 INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE BOOST_THREAD_PROVIDES_GENERIC_SHARED_MUTEX_ON_WIN __NO_SYSTEM_INCLUDES
@@ -487,20 +487,9 @@ macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/wtfcoin.icns
-macx:TARGET = "wtfcoin"
+macx:TARGET = "xwtcoin"
 
-BOOST_INCLUDE_PATH=/opt/local/include/boost
-          BOOST_LIB_PATH=/opt/local/lib
-          BDB_INCLUDE_PATH=/opt/local/include/db48
-          BDB_LIB_PATH=/opt/local/lib/db48
-          OPENSSL_INCLUDE_PATH=/opt/local/include/openssl
-          OPENSSL_LIB_PATH=/opt/local/lib
 
-          MINIUPNPC_INCLUDE_PATH=/opt/local/include/miniupnpc
-          MINIUPNPC_LIB_PATH=/opt/local/lib
-
-          QRENCODE_INCLUDE_PATH=/opt/local/include
-          QRENCODE_LIB_PATH=/opt/local/lib
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
 INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
 LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
