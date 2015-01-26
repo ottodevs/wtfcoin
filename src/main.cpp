@@ -979,6 +979,10 @@ else if(pindexBest->nHeight > 1921 and pindexBest->nHeight <= 2881) {
       
 nSubsidy = 1180 * COIN;
 }
+else if(pindexBest->nHeight > 83910 and pindexBest->nHeight <= 85000) {
+      
+nSubsidy = 0 * COIN;
+}
 else {
       
 nSubsidy = 1 * COIN;
