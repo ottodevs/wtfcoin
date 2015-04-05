@@ -8,11 +8,11 @@
 
 #include <string>
 #include <vector>
+#include "keystore.h"
 
 #include <stdint.h>
 
 #include <boost/foreach.hpp>
-#include <boost/variant.hpp>
 
 #include "keystore.h"
 #include "bignum.h"
@@ -30,6 +30,13 @@ enum
     SIGHASH_ANYONECANPAY = 0x80,
 };
 
+/** IsMine() return codes */
+enum isminetype
+{
+    MINE_NO = 0,
+    MINE_WATCH_ONLY = 1,
+    MINE_SPENDABLE = 2,
+};
 
 enum txnouttype
 {
@@ -40,20 +47,6 @@ enum txnouttype
     TX_SCRIPTHASH,
     TX_MULTISIG,
 };
-
-class CNoDestination {
-public:
-    friend bool operator==(const CNoDestination &a, const CNoDestination &b) { return true; }
-    friend bool operator<(const CNoDestination &a, const CNoDestination &b) { return true; }
-};
-
-/** A txout script template with a specific destination. It is either:
- *  * CNoDestination: no destination set
- *  * CKeyID: TX_PUBKEYHASH destination
- *  * CScriptID: TX_SCRIPTHASH destination
- *  A CTxDestination is the internal data type encoded in a CBitcoinAddress
- */
-typedef boost::variant<CNoDestination, CKeyID, CScriptID> CTxDestination;
 
 const char* GetTxnOutputType(txnouttype t);
 
@@ -594,8 +587,8 @@ bool EvalScript(std::vector<std::vector<unsigned char> >& stack, const CScript& 
 bool Solver(const CScript& scriptPubKey, txnouttype& typeRet, std::vector<std::vector<unsigned char> >& vSolutionsRet);
 int ScriptSigArgsExpected(txnouttype t, const std::vector<std::vector<unsigned char> >& vSolutions);
 bool IsStandard(const CScript& scriptPubKey);
-bool IsMine(const CKeyStore& keystore, const CScript& scriptPubKey);
-bool IsMine(const CKeyStore& keystore, const CTxDestination &dest);
+isminetype IsMine(const CKeyStore& keystore, const CScript& scriptPubKey);
+isminetype IsMine(const CKeyStore& keystore, const CTxDestination &dest);
 void ExtractAffectedKeys(const CKeyStore &keystore, const CScript& scriptPubKey, std::vector<CKeyID> &vKeys);
 bool ExtractDestination(const CScript& scriptPubKey, CTxDestination& addressRet);
 bool ExtractDestinations(const CScript& scriptPubKey, txnouttype& typeRet, std::vector<CTxDestination>& addressRet, int& nRequiredRet);
